@@ -15,9 +15,9 @@
  - Adding new features
 ## Credits
  All versions of Minecraft Python Clone wer made by Obiwac.
-Youtube: https://www.youtube.com/channel/UCqJwk3U9c4AksI-tb7B045g
-Github: https://github.com/obiwac/python-minecraft-clone
-Discord: https://discord.gg/puWgrg6YNg
+ - Youtube: https://www.youtube.com/channel/UCqJwk3U9c4AksI-tb7B045g
+ - Github: https://github.com/obiwac/python-minecraft-clone
+ - Discord: https://discord.gg/puWgrg6YNg
 ## Notes
 The clone is still under development, If you find bugs with the launcher or -modified versions make a issue on this page, if you fins issues with the originals make a issue and Obiwac's Github page
 ## Have Fun!
