@@ -1,4 +1,0 @@
-optionsHeight = 600
-optionsWidth = 800
-optionsVsync = True
-optionsFpsWindow = False
