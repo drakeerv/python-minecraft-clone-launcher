@@ -4,7 +4,7 @@
  - Put the launcher.py file into the dirrectory you want to install the versions
  - Run it
  - Got to version manager
- - Select your version (-modified means I have made modifications too it to do more things)
+ - Select your version (-modified means I have made modifications too it to do more things like support options)
  - CLick Download Version
  - Once done, exit out of the launcher and reopen it
  - Select the verion
