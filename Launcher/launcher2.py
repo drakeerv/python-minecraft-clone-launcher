@@ -44,7 +44,7 @@ def launch(directory):
     with contextlib.suppress(subprocess.TimeoutExpired):
         subprocess.call(f"{sys.executable} main.py", shell=True, timeout=1)
 
-    os.chdir("..")
+    os.chdir("../../")
 
 def update_options(object, variable, options):
     object["menu"].delete(0, "end")
