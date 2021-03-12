@@ -38,13 +38,14 @@ def download_url(url, save_path, chunk_size=128):
 # Launch
 def launch(directory):
     print(directory)
+    old_directory = os.path.realpath("./")
     directory = os.path.realpath(directory)
     os.chdir(directory)
 
     with contextlib.suppress(subprocess.TimeoutExpired):
         subprocess.call(f"{sys.executable} main.py", shell=True, timeout=1)
 
-    os.chdir("../../")
+    os.chdir(old_directory)
 
 def update_options(object, variable, options):
     object["menu"].delete(0, "end")
