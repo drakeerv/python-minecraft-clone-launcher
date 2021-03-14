@@ -2,7 +2,7 @@
 # Minecraft Python Launcher
 # Made by drakeerv
 # TODO:
-# 1. Make it check for texture update
+# 1. Make it check for update
 # 2. Install verions
 # 3. Make setup screen better (Progress bar)
 
@@ -107,6 +107,7 @@ def version_manager(parent_root):
     play_image = tk.PhotoImage(file=f"{assets_directory}/play.png")
     home_image = tk.PhotoImage(file=f"{assets_directory}/home.png")
     icon_image = tk.PhotoImage(file=f"{assets_directory}/icon.png")
+    back_image = tk.PhotoImage(file=f"{assets_directory}/back.png")
     play_blocked_image = tk.PhotoImage(file=f"{assets_directory}/play_blocked.png")
 
     # Set window size
@@ -115,24 +116,16 @@ def version_manager(parent_root):
 
     # Create canvas
     main_canvas = tk.Canvas(root, bg=background_color, highlightthickness=0)
-
-    # Create scrollbar
-    bar = tk.Scrollbar(root, command=main_canvas.yview, orient=tk.VERTICAL)
-
-    # Configure canvas and scroll
-    bar.pack(side=tk.LEFT, fill=tk.Y)
     main_canvas.pack(fill=tk.BOTH, expand=True)
-    main_canvas.configure(yscrollcommand=bar.set)
 
     # Create widgets
-    exit_button = tk.Button(root, text="Return", cursor="hand2", bg="red", font=("helvetica", 12, "bold"), command=root.destroy)
-    exit_button.place(x=window_width*1, y=window_height*0, anchor=tk.NE)
+    exit_button = tk.Button(root, image=back_image, cursor="hand2", bg="red", font=("helvetica", 12, "bold"), command=root.destroy)
+    exit_button.place(x=window_width*0.99, y=window_height*0.02, anchor=tk.NE)
 
     # Create art
-    main_canvas.create_rectangle(window_width*0, window_height*0, window_width*1, window_height*0.1, fill=foreground_color)
-    main_canvas.create_rectangle(window_width*0, window_height*0, window_width*0.18, window_height*1, fill=foreground_color)
+    main_canvas.create_rectangle(window_width*0, window_height*0, window_width*1, window_height*0.1, fill=foreground_color, outline="")
+    main_canvas.create_rectangle(window_width*0, window_height*0, window_width*0.18, window_height*1, fill=foreground_color, outline="")
     main_canvas.create_text(window_width*0.01, window_height*0.025, text="Versions", fill="white", anchor=tk.NW, font=("Ubuntu-Bold", (18)))
-    main_canvas.create_rectangle(0, 1000, 10, 10010, fill="white")
 
     # Make canvas scrollable
     main_canvas.configure(scrollregion=main_canvas.bbox(tk.ALL))
@@ -159,6 +152,7 @@ if __name__ == "__main__":
     play_image = tk.PhotoImage(file=f"{assets_directory}/play.png")
     home_image = tk.PhotoImage(file=f"{assets_directory}/home.png")
     icon_image = tk.PhotoImage(file=f"{assets_directory}/icon.png")
+    back_image = tk.PhotoImage(file=f"{assets_directory}/back.png")
     play_blocked_image = tk.PhotoImage(file=f"{assets_directory}/play_blocked.png")
 
     # Set window size
@@ -179,7 +173,7 @@ if __name__ == "__main__":
     main_canvas.pack(fill=tk.BOTH, expand=True)
 
     # Create widgets
-    play_button = tk.Button(root, image=play_blocked_image, cursor="hand2", activebackground=active_color, bg=background_color, fg=foreground_color, borderwidth=0)
+    play_button = tk.Button(root, image=play_blocked_image, cursor="arrow", activebackground=active_color, bg=background_color, fg=foreground_color, borderwidth=0)
     play_button.place(x=window_width*0.5, y=window_height*0.7, anchor=tk.CENTER)
 
     installation_options = tk.OptionMenu(root, selected_installation, *installations)
@@ -195,7 +189,7 @@ if __name__ == "__main__":
 
     # Finish setting up
     if not no_versions:
-        play_button.config(image=play_image, command=lambda: launch(f"{installations_directory}/{selected_installation.get()}"))
+        play_button.config(image=play_image, cursor="hand2", command=lambda: launch(f"{installations_directory}/{selected_installation.get()}"))
 
     # Configure window
     root.resizable(0, 0)
